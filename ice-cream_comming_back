@@ -53,7 +53,7 @@ var makeItem = function (tagName, className, text) {
 // создать карточку из 1 элемента масива 
 var makeCard = function (card) {
   
-  var listItem = makeItem('li', '.good');
+  var listItem = makeItem('li', 'good');
 
   var title = makeItem('h2', 'good__description', card.text);
   listItem.appendChild(title);
@@ -63,7 +63,7 @@ var makeCard = function (card) {
   picture.alt = card.text;
   listItem.appendChild(picture);
 
-  var price = makeItem('p', 'good__price', card.price);
+  var price = makeItem('p', 'good__price', card.price + "₽/кг");
   
   listItem.appendChild(price);
 // доступность товара
