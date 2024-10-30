@@ -1,0 +1,43 @@
+var form = document.querySelector('.chat-form'); 
+var message = form.querySelector('.chat-form-input'); 
+// console.log(button); 
+
+// шаблон элемента под сообщение
+var template = document.querySelector('#message-template').content;
+// вытащили разметку внутри шаблона
+let contentTable = template.querySelector(".chat-message");
+
+// контейнер, куда будем добавлять сообщения
+var conteiner = document.querySelector('.chat-content'); 
+
+// отслеживаем нажатие на кнопку Отправить
+form.addEventListener('submit', function (evt) {
+  evt.preventDefault();
+  let text = message.value; // получили текст из inmut
+  let newClone = contentTable.cloneNode(true);
+  let span = newClone.querySelector(".chat-message-name");
+  //
+  span.textContent = text;
+    conteiner.appendChild(newClone);
+    newClone.addEventListener("click", function () {
+            newClone.remove();
+    });
+  } ); 
+  
+
+/* 
+
+Нужно запрограммировать мессенджер. Как должна работать программа:
+
+— Шаблон сообщения находится в теге template с идентификатором message-template.
+
+— В блоке сообщения (класс chat-message) должен быть текст сообщения, кнопка удаления и имя пользователя.
+
+— Новое сообщение добавляется в конец контейнера с классом chat-content.
+
+— Чтобы добавить новое сообщение, нужно ввести текст в поле ввода (элемент с классом chat-form-input) и нажать кнопку «Отправить» (отправляет данные из формы с классом chat-form).
+    
+- Чтобы удалить сообщение, нужно кликнуть по кнопке с крестиком (элемент с классом chat-message-button). Эта кнопка появляется при наведении на сообщение.
+
+
+*/
